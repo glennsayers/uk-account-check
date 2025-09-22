@@ -1,6 +1,6 @@
 {
   "name": "uk-account-check",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Uses the Vocalink Modulus Checking system to verify UK bank account details",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
