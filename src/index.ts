@@ -18,19 +18,42 @@ import {
   validateSortCode,
 } from "@/lib/validation/inputValidation";
 
-// Define a type for the object parameter for reusability
+/**
+ * Bank account details for validation.
+ */
 type BankDetails = {
+  /** UK bank sort code (6 digits, hyphens/spaces optional) */
   sortCode: string;
+  /** UK bank account number (6-10 digits, hyphens/spaces optional) */
   accountNumber: string;
 };
+
+/**
+ * Validates UK bank account details using the official Vocalink Modulus Checking system.
+ *
+ * This function implements the complete Vocalink v8.50 specification including all 14 exceptions.
+ * It performs comprehensive validation and returns detailed results about the checking process.
+ *
+ * @param details a BankDetails object
+ * @returns Comprehensive validation result with status, errors, and check details
+ */
 export function verifyBankAccount(details: BankDetails): ValidationResult;
 
+/**
+ * Validates UK bank account details using the official Vocalink Modulus Checking system.
+ *
+ * This function implements the complete Vocalink v8.50 specification including all 14 exceptions.
+ * It performs comprehensive validation and returns detailed results about the checking process.
+ *
+ * @param sortCode a string representing the sort code
+ * @param accountNumber a string representing the account number
+ * @returns Comprehensive validation result with status, errors, and check details
+ */
 export function verifyBankAccount(
   sortCode: string,
   accountNumber: string
 ): ValidationResult;
 
-// 3. The actual implementation with a compatible signature
 export function verifyBankAccount(
   arg1: string | BankDetails,
   arg2?: string

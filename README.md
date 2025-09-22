@@ -1,5 +1,8 @@
 # UK Account Check
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/glennsayers/uk-account-check/ci.yml?style=for-the-badge)
+![NPM License](https://img.shields.io/npm/l/uk-account-check?style=for-the-badge)
+
 A TypeScript library that implements the Vocalink Modulus Checking system to verify UK bank account details. This library validates UK bank account numbers using modulus checking algorithms against sort codes, following the official Vocalink specification used by UK banks.
 
 This includes:
@@ -8,7 +11,7 @@ This includes:
 - Complete exception handling (exceptions 1-14)
 - Up-to-date Vocalink data file
 
-This library currently implements v8.50 of the [Vocalink Modulus Checking spec](https://www.vocalink.com/media/vu1advew/validating-account-numbers-uk-modulus-checking-v850.pdf), with all official exceptions covered. This will be kept up to date as new versions are published.
+This library currently implements v8.50 (23rd June 2025) of the [Vocalink Modulus Checking spec](https://www.vocalink.com/media/vu1advew/validating-account-numbers-uk-modulus-checking-v850.pdf), with all official exceptions covered. This will be kept up to date as new versions are published.
 
 The specification requires that sort codes with no weight records in the Vocalink data should be considered valid. These scenarios are reported back by this library in the `ValidationStatus` to highlight when a sort code/account combination is valid but unverified.
 

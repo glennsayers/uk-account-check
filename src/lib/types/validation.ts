@@ -1,9 +1,15 @@
+/**
+ * Represents a validation error for invalid input data.
+ */
 export interface ValidationError {
   field: "sortCode" | "accountNumber";
   code: string;
   message: string;
 }
 
+/**
+ * Result of an individual modulus check performed during validation.
+ */
 export interface CheckResult {
   method: "MOD10" | "MOD11" | "DBLAL";
   exception?: number;
@@ -15,6 +21,10 @@ export interface CheckResult {
   };
 }
 
+/**
+ * Indicates the type and outcome of the validation process.
+ * @since 1.0.0
+ */
 export enum ValidationStatus {
   VALIDATED_PASSED = "VALIDATED_PASSED",
   ASSUMED_VALID_NO_CHECKS = "ASSUMED_VALID_NO_CHECKS",
