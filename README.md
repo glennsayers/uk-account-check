@@ -2,6 +2,7 @@
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/glennsayers/uk-account-check/ci.yml?style=for-the-badge)
 ![NPM License](https://img.shields.io/npm/l/uk-account-check?style=for-the-badge)
+![NPM Version](https://img.shields.io/npm/v/uk-account-check?style=for-the-badge)
 
 A TypeScript library that implements the Vocalink Modulus Checking system to verify UK bank account details. This library validates UK bank account numbers using modulus checking algorithms against sort codes, following the official Vocalink specification used by UK banks.
 
