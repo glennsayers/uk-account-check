@@ -5,6 +5,11 @@ on:
     branches:
       - master
 
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
@@ -46,4 +51,3 @@ jobs:
           commit: "Version Packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

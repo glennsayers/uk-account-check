@@ -1920,6 +1920,54 @@ export const valacdosData: SortcodeValacdos[] = [
     exception: undefined
   },
   {
+    start: "230301",
+    end: "230301",
+    modCheck: "MOD11" as ModulusCheckMethods,
+    u: 0, v: 0, w: 0, x: 0, y: 0, z: 0,
+    a: 0, b: 7, c: 6, d: 5, e: 4, f: 3, g: 2, h: 1,
+    exception: undefined
+  },
+  {
+    start: "230301",
+    end: "230301",
+    modCheck: "DBLAL" as ModulusCheckMethods,
+    u: 2, v: 1, w: 2, x: 1, y: 2, z: 1,
+    a: 2, b: 1, c: 2, d: 1, e: 2, f: 1, g: 2, h: 1,
+    exception: undefined
+  },
+  {
+    start: "230302",
+    end: "230302",
+    modCheck: "MOD11" as ModulusCheckMethods,
+    u: 0, v: 0, w: 0, x: 0, y: 0, z: 0,
+    a: 0, b: 7, c: 6, d: 5, e: 4, f: 3, g: 2, h: 1,
+    exception: undefined
+  },
+  {
+    start: "230302",
+    end: "230302",
+    modCheck: "DBLAL" as ModulusCheckMethods,
+    u: 2, v: 1, w: 2, x: 1, y: 2, z: 1,
+    a: 2, b: 1, c: 2, d: 1, e: 2, f: 1, g: 2, h: 1,
+    exception: undefined
+  },
+  {
+    start: "230304",
+    end: "230304",
+    modCheck: "MOD11" as ModulusCheckMethods,
+    u: 0, v: 0, w: 0, x: 0, y: 0, z: 0,
+    a: 0, b: 7, c: 6, d: 5, e: 4, f: 3, g: 2, h: 1,
+    exception: undefined
+  },
+  {
+    start: "230304",
+    end: "230304",
+    modCheck: "DBLAL" as ModulusCheckMethods,
+    u: 2, v: 1, w: 2, x: 1, y: 2, z: 1,
+    a: 2, b: 1, c: 2, d: 1, e: 2, f: 1, g: 2, h: 1,
+    exception: undefined
+  },
+  {
     start: "230338",
     end: "230338",
     modCheck: "MOD11" as ModulusCheckMethods,
