@@ -12,7 +12,7 @@ This includes:
 - Complete exception handling (exceptions 1-14)
 - Up-to-date Vocalink data file
 
-This library currently implements v8.50 (23rd June 2025) of the [Vocalink Modulus Checking spec](https://www.vocalink.com/media/vu1advew/validating-account-numbers-uk-modulus-checking-v850.pdf), with all official exceptions covered. This will be kept up to date as new versions are published.
+This library currently implements v8.60 (effective 14th February 2026) of the [Vocalink Modulus Checking spec](https://www.vocalink.com/media/vu1advew/validating-account-numbers-uk-modulus-checking-v850.pdf), with all official exceptions covered. This will be kept up to date as new versions are published.
 
 The specification requires that sort codes with no weight records in the Vocalink data should be considered valid. These scenarios are reported back by this library in the `ValidationStatus` to highlight when a sort code/account combination is valid but unverified.
 
@@ -33,7 +33,7 @@ pnpm add uk-account-check
 ## Quick Start
 
 ```typescript
-import { verifyBankAccount, ValidationStatus } from "uk-account-check";
+import { verifyBankAccount } from "uk-account-check";
 
 // Method 1: Separate parameters
 const { isValid, validationStatus, summary } = verifyBankAccount(
