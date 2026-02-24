@@ -12,7 +12,7 @@ This includes:
 - Complete exception handling (exceptions 1-14)
 - Up-to-date Vocalink data file
 
-This library currently implements v8.60 (effective 14th February 2026) of the [Vocalink Modulus Checking spec](https://www.vocalink.com/media/vu1advew/validating-account-numbers-uk-modulus-checking-v850.pdf), with all official exceptions covered. This will be kept up to date as new versions are published.
+This library currently implements v8.70 (effective 28th March 2026) of the [Vocalink Modulus Checking spec](https://www.vocalink.com/media/irllndih/validating-account-numbers-uk-modulus-checking-v870.pdf), with all official exceptions covered. This will be kept up to date as new versions are published.
 
 The specification requires that sort codes with no weight records in the Vocalink data should be considered valid. These scenarios are reported back by this library in the `ValidationStatus` to highlight when a sort code/account combination is valid but unverified.
 
@@ -38,7 +38,7 @@ import { verifyBankAccount } from "uk-account-check";
 // Method 1: Separate parameters
 const { isValid, validationStatus, summary } = verifyBankAccount(
   "089999",
-  "66374958"
+  "66374958",
 );
 
 console.log(isValid); // true
@@ -231,7 +231,7 @@ if (result.isValid) {
 
   if (result.validationStatus === ValidationStatus.ASSUMED_VALID_NO_CHECKS) {
     console.log(
-      "Warning: No verification checks were performed - this sort code and account number combination is valid but potentially not in use"
+      "Warning: No verification checks were performed - this sort code and account number combination is valid but potentially not in use",
     );
   } else {
     console.log(`Passed ${result.summary.totalChecks} modulus checks`);
@@ -249,7 +249,7 @@ if (result.isValid) {
       console.log(
         `Check ${index + 1} (${check.method}): ${
           check.passed ? "PASS" : "FAIL"
-        }`
+        }`,
       );
     });
   }

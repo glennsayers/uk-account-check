@@ -7,6 +7,7 @@ import { Exception02Handler } from "@/lib/exceptions/handlers/exception-02";
 import { Exception04Handler } from "@/lib/exceptions/handlers/exception-04";
 import { Exception05Handler } from "@/lib/exceptions/handlers/exception-05";
 import { Exception07Handler } from "@/lib/exceptions/handlers/exception-07";
+import { Exception08Handler } from "@/lib/exceptions/handlers/exception-08";
 import { Exception09Handler } from "@/lib/exceptions/handlers/exception-09";
 import { Exception10Handler } from "@/lib/exceptions/handlers/exception-10";
 import { Exception12Handler } from "@/lib/exceptions/handlers/exception-12";
@@ -16,13 +17,13 @@ import type { WeightMap } from "@/lib/sortCode/valacdos";
 interface ExceptionHandler {
   apply(
     context: ModulusCheckContext,
-    weightRecords: WeightMap[]
+    weightRecords: WeightMap[],
   ): ModulusCheckContext;
   shouldApply(exception: number): boolean;
   validateResult?(
     modulusResult: number,
     finalModulusValue: number,
-    context: ModulusCheckContext
+    context: ModulusCheckContext,
   ): boolean;
 }
 
@@ -41,7 +42,7 @@ export class ExceptionRegistry {
 
   applyExceptions(
     context: ModulusCheckContext,
-    weightRecords: WeightMap[]
+    weightRecords: WeightMap[],
   ): ModulusCheckContext {
     if (!context.exception) return context;
 
@@ -65,7 +66,7 @@ export class ExceptionRegistry {
     const handlers = this.handlers.get(context.exception) || [];
     return handlers.reduce(
       (ctx, handler) => handler.apply(ctx, weightRecords),
-      context
+      context,
     );
   }
   getResultPredicate(weightRecords: WeightMap[]): ResultsPredicate {
@@ -103,7 +104,7 @@ export class ExceptionRegistry {
   }
 
   getHandler(
-    exceptionNumber: number | undefined
+    exceptionNumber: number | undefined,
   ): ExceptionHandler | undefined {
     if (!exceptionNumber) return undefined;
 
@@ -114,22 +115,13 @@ export class ExceptionRegistry {
 
 export const exceptionRegistry = new ExceptionRegistry();
 
-// Handlers only need reigstered if they modify the modulus check context
-const handlers = [
-  new Exception01Handler(),
-  new Exception02Handler(),
-  new Exception04Handler(),
-  new Exception05Handler(),
-  new Exception07Handler(),
-  new Exception09Handler(),
-  new Exception10Handler(),
-  new Exception14Handler(),
-];
-
-handlers.forEach((handler) => {
-  for (let i = 1; i <= 14; i++) {
-    if (handler.shouldApply(i)) {
-      exceptionRegistry.register(i, handler);
-    }
-  }
-});
+// Handlers only need registered if they modify the modulus check context
+exceptionRegistry.register(1, new Exception01Handler());
+exceptionRegistry.register(2, new Exception02Handler());
+exceptionRegistry.register(4, new Exception04Handler());
+exceptionRegistry.register(5, new Exception05Handler());
+exceptionRegistry.register(7, new Exception07Handler());
+exceptionRegistry.register(8, new Exception08Handler());
+exceptionRegistry.register(9, new Exception09Handler());
+exceptionRegistry.register(10, new Exception10Handler());
+exceptionRegistry.register(14, new Exception14Handler());

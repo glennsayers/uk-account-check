@@ -14,8 +14,6 @@ export class Exception09Handler implements ExceptionHandler {
       sortCode: "309634",
     };
 
-    return {
-      ...modifiedContext,
-    };
+    return modifiedContext;
   }
 }

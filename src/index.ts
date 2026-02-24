@@ -31,7 +31,7 @@ type BankDetails = {
 /**
  * Validates UK bank account details using the official Vocalink Modulus Checking system.
  *
- * This function implements the complete Vocalink v8.50 specification including all 14 exceptions.
+ * This function implements the complete Vocalink v8.70 specification including all 14 exceptions.
  * It performs comprehensive validation and returns detailed results about the checking process.
  *
  * @param details a BankDetails object
@@ -42,7 +42,7 @@ export function verifyBankAccount(details: BankDetails): ValidationResult;
 /**
  * Validates UK bank account details using the official Vocalink Modulus Checking system.
  *
- * This function implements the complete Vocalink v8.50 specification including all 14 exceptions.
+ * This function implements the complete Vocalink v8.70 specification including all 14 exceptions.
  * It performs comprehensive validation and returns detailed results about the checking process.
  *
  * @param sortCode a string representing the sort code
@@ -51,12 +51,12 @@ export function verifyBankAccount(details: BankDetails): ValidationResult;
  */
 export function verifyBankAccount(
   sortCode: string,
-  accountNumber: string
+  accountNumber: string,
 ): ValidationResult;
 
 export function verifyBankAccount(
   arg1: string | BankDetails,
-  arg2?: string
+  arg2?: string,
 ): ValidationResult {
   let sortCode: string;
   let accountNumber: string;
@@ -69,7 +69,7 @@ export function verifyBankAccount(
   } else {
     // This handles the verifyBankAccount('...', '...') case
     sortCode = arg1;
-    accountNumber = arg2 as string; // We can assert 'arg2' is a string here
+    accountNumber = arg2 ?? "";
   }
   const sortCodeErrors = validateSortCode(sortCode);
   const accountNumberErrors = validateAccountNumber(accountNumber);
@@ -103,7 +103,7 @@ export function verifyBankAccount(
     sortCode: standardisedSortCode,
   } = transformNonStandardAccountNumbers(
     sanitizedAccountNumber,
-    sanitizedSortCode
+    sanitizedSortCode,
   );
 
   // Detect transformation
@@ -156,18 +156,18 @@ export function verifyBankAccount(
         standardisedSortCode,
         standardisedAccountNumber,
         weightRecord,
-        index + 1
+        index + 1,
       );
 
       const modifiedContext = exceptionRegistry.applyExceptions(
         context,
-        modulusWeightRecords
+        modulusWeightRecords,
       );
 
       contexts.push(modifiedContext);
 
       return performStandardCheck(modifiedContext);
-    }
+    },
   );
 
   // Determine overall result

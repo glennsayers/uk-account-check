@@ -22,7 +22,7 @@ export const sanitizeAccountNumber = (accountNumber: string): string => {
 
 export const transformNonStandardAccountNumbers = (
   accountNumber: string,
-  sortCode: string
+  sortCode: string,
 ): {
   accountNumber: string;
   sortCode: string;
@@ -65,13 +65,12 @@ export const transformNonStandardAccountNumbers = (
    * remaining 8 digits
    */
   if (accountNumber.length === 9) {
-    const isSantander =
-      SANTANDER_SORT_CODE_RANGES.filter((range) => {
-        return sortCode >= range.start && sortCode <= range.end;
-      }).length > 0;
+    const isSantander = SANTANDER_SORT_CODE_RANGES.some((range) => {
+      return sortCode >= range.start && sortCode <= range.end;
+    });
     const standardisedSortCode = `${sortCode.substring(
       0,
-      5
+      5,
     )}${accountNumber.substring(0, 1)}`;
 
     return {

@@ -23,7 +23,7 @@ export class Exception05Handler implements ExceptionHandler {
   validateResult(
     modulusResult: number,
     finalModulusValue: number,
-    context: ModulusCheckContext
+    context: ModulusCheckContext,
   ): boolean {
     if (context.checkNumber === 1) {
       const remainder = modulusResult % 11;

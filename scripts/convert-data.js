@@ -46,27 +46,7 @@ async function convertValacdos() {
 
   const tsContent = `// Auto-generated from valacdos.txt - DO NOT EDIT MANUALLY
 import type { ModulusCheckMethods } from "../lib/constants/constants";
-
-export type SortcodeValacdos = {
-  start: string;
-  end: string;
-  modCheck: ModulusCheckMethods;
-  u: number;
-  v: number;
-  w: number;
-  x: number;
-  y: number;
-  z: number;
-  a: number;
-  b: number;
-  c: number;
-  d: number;
-  e: number;
-  f: number;
-  g: number;
-  h: number;
-  exception: number | undefined;
-};
+import type { SortcodeValacdos } from "../lib/sortCode/valacdos";
 
 export const valacdosData: SortcodeValacdos[] = [
 ${lines
@@ -79,7 +59,7 @@ ${lines
     u: ${line.u}, v: ${line.v}, w: ${line.w}, x: ${line.x}, y: ${line.y}, z: ${line.z},
     a: ${line.a}, b: ${line.b}, c: ${line.c}, d: ${line.d}, e: ${line.e}, f: ${line.f}, g: ${line.g}, h: ${line.h},
     exception: ${line.exception}
-  }`
+  }`,
   )
   .join(",\n")}
 ];

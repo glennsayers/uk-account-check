@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [main, develop]
+    branches: [master, develop]
   push:
-    branches: [main, develop]
+    branches: [master, develop]
 
 jobs:
   test:
@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -29,7 +29,7 @@ jobs:
         run: pnpm test
 
       - name: Run Lint
-        run: pnpm lint
+        run: pnpm lint:ci
 
       - name: Build
         run: pnpm build

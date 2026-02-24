@@ -9,7 +9,7 @@ export type Weightings = Omit<WeightMap, "modCheck" | "exception"> & {
 };
 
 export const performStandardCheck = (
-  context: ModulusCheckContext
+  context: ModulusCheckContext,
 ): CheckResult => {
   // Extract needed values from context
   const {
@@ -83,7 +83,7 @@ export const performStandardCheck = (
 
 const standardCheckResult = (
   accountAndSortMap: Weightings,
-  weightingRecord: Weightings
+  weightingRecord: Weightings,
 ): number => {
   return Object.keys(accountAndSortMap).reduce((prev, current) => {
     return prev + accountAndSortMap[current] * weightingRecord[current];
@@ -93,7 +93,7 @@ const standardCheckResult = (
 const dblAltResult = (
   accountAndSortMap: Weightings,
   weightingRecord: Weightings,
-  exception: number | undefined
+  exception: number | undefined,
 ): number => {
   let modulusResult = Object.keys(accountAndSortMap).reduce(
     (total, current) => {
@@ -110,7 +110,7 @@ const dblAltResult = (
         .reduce((prev, curr) => prev + +curr, 0);
       return total + individualSummation;
     },
-    0
+    0,
   );
 
   /**
@@ -125,7 +125,7 @@ const dblAltResult = (
 
 const canSkipCheck = (
   exception: number,
-  accountAndSortMap: Weightings
+  accountAndSortMap: Weightings,
 ): boolean => {
   /**
    * Exception 3 allows us to skip this check in certain scenarioes

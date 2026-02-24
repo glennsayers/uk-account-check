@@ -21,5 +21,5 @@ export const sortCodeSubstitutions: Record<string, string> = {
   "938649": "938394",
   "938651": "938335",
   "938653": "938424",
-  "938654": "938621"
+  "938654": "938621",
 };

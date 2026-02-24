@@ -4,7 +4,7 @@ import type { WeightMap } from "@/lib/sortCode/valacdos";
 
 export type ResultsPredicate = (
   results: boolean[],
-  contexts: ModulusCheckContext[]
+  contexts: ModulusCheckContext[],
 ) => boolean;
 export interface ModulusCheckContext {
   sortCode: string;
@@ -40,7 +40,7 @@ export interface ExceptionHandler {
   validateResult?(
     modulusResult: number,
     finalModulusValue: number,
-    context: ModulusCheckContext
+    context: ModulusCheckContext,
   ): boolean;
 
   /**
@@ -49,7 +49,7 @@ export interface ExceptionHandler {
   getResultPredicate?(): ResultsPredicate;
 }
 export const determineResultPredicate = (
-  modulusWeightingChecks: WeightMap[]
+  modulusWeightingChecks: WeightMap[],
 ): ResultsPredicate => {
   /**
    * Exceptions 10 and 11 for the first and second check

@@ -17,7 +17,7 @@ export class Exception04Handler implements ExceptionHandler {
   validateResult(
     modulusResult: number,
     finalModulusValue: number,
-    context: ModulusCheckContext
+    context: ModulusCheckContext,
   ): boolean {
     const checkdigit = parseInt(context.accountNumber.substring(6, 8), 10);
     return modulusResult % finalModulusValue === checkdigit;

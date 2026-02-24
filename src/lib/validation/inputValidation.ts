@@ -36,7 +36,7 @@ export function validateSortCode(sortCode: string): ValidationError[] {
 }
 
 export function validateAccountNumber(
-  accountNumber: string
+  accountNumber: string,
 ): ValidationError[] {
   const errors: ValidationError[] = [];
 
