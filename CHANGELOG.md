@@ -1,5 +1,11 @@
 # uk-account-check
 
+## 1.2.1
+
+### Patch Changes
+
+- 219d2bd: Fix commonjs compatibility:
+
 ## 1.2.0
 
 ### Minor Changes
