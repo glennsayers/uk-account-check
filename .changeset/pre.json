@@ -1,0 +1,8 @@
+{
+  "mode": "pre",
+  "tag": "prerelease-vocalink-v880",
+  "initialVersions": {
+    "uk-account-check": "1.2.1"
+  },
+  "changesets": ["v880-valacdos"]
+}
