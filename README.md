@@ -259,6 +259,8 @@ if (result.isValid) {
 ### Error Handling
 
 ```typescript
+import { verifyBankAccount, ValidationStatus } from "uk-account-check";
+
 const result = verifyBankAccount("invalid", "123");
 
 if (result.validationStatus === ValidationStatus.INVALID_INPUT) {
@@ -287,12 +289,12 @@ The library automatically handles different UK account number formats:
 const natwest = verifyBankAccount("010004", "1234567890");
 console.log(natwest.input.transformationApplied); // "10-digit NatWest (last 8 digits used)"
 
-// 9-digit account
-// For Santander accounts: (first digit moves to sort code, 8 digits used)
-const santanderNineDigit = verifyBankAccount("308000", "123456789");
+// 9-digit Santander account (last sort-code digit replaced with first account digit, then 8 digits used)
+const santanderNineDigit = verifyBankAccount("090126", "312345678");
+console.log(santanderNineDigit.input.sanitizedSortCode); // "090123"
 console.log(santanderNineDigit.input.transformationApplied); // "9-digit account (8 digits used)"
 
-// For other accounts: (drop the first digit)
+// 9-digit non-Santander account (drop the first digit)
 const nineDigit = verifyBankAccount("308000", "123456789");
 console.log(nineDigit.input.transformationApplied); // "9-digit account (8 digits used)"
 
@@ -361,9 +363,4 @@ MIT License - see LICENSE file for details.
 
 ## Changelog
 
-### v1.0.0
-
-- Initial release with comprehensive validation API
-- Support for all Vocalink modulus checking methods
-- Detailed validation results and error reporting
-- Full TypeScript support
+See [CHANGELOG.md](./CHANGELOG.md) for release history.

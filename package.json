@@ -9,7 +9,8 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "exports": {
     ".": {
@@ -31,6 +32,7 @@
     "release": "pnpm build && changeset publish",
     "test:watch": "vitest",
     "test": "vitest run",
+    "typecheck": "tsc --noEmit",
     "version": "changeset version"
   },
   "keywords": [
@@ -50,11 +52,11 @@
   },
   "homepage": "https://github.com/glennsayers/uk-account-check#readme",
   "devDependencies": {
-    "@biomejs/biome": "2.4.4",
-    "@changesets/cli": "^2.29.8",
-    "@types/node": "^25.3.0",
-    "tsdown": "^0.20.3",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "@biomejs/biome": "^2.4.12",
+    "@changesets/cli": "^2.31.0",
+    "@types/node": "^25.6.0",
+    "tsdown": "^0.21.9",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
   }
 }

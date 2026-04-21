@@ -7,7 +7,7 @@
     "declaration": true,
     "declarationMap": true,
     "strict": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "outDir": "dist",

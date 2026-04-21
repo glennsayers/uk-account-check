@@ -21,7 +21,7 @@ import {
 /**
  * Bank account details for validation.
  */
-type BankDetails = {
+export type BankDetails = {
   /** UK bank sort code (6 digits, hyphens/spaces optional) */
   sortCode: string;
   /** UK bank account number (6-10 digits, hyphens/spaces optional) */
@@ -193,3 +193,10 @@ export function verifyBankAccount(
     },
   };
 }
+
+export type {
+  CheckResult,
+  ValidationError,
+  ValidationResult,
+} from "@/lib/types/validation";
+export { ValidationStatus } from "@/lib/types/validation";
