@@ -115,7 +115,37 @@ export class ExceptionRegistry {
 
 export const exceptionRegistry = new ExceptionRegistry();
 
-// Handlers only need registered if they modify the modulus check context
+/**
+ * Handler registration is intentionally limited to exceptions that need registry
+ * behaviour: context mutation, custom check-digit validation, or shared pair
+ * handling. Exception ownership is:
+ *
+ * - 1: registered; adds to DBLAL calculation in performStandardCheck.
+ * - 2: registered; mutates weights and is paired with exception 9 in
+ *   getResultPredicate.
+ * - 3: not registered; pure skip rule handled in performStandardCheck.
+ * - 4: registered; validates against the account check digit.
+ * - 5: registered; applies sort-code substitution and custom check-digit
+ *   validation.
+ * - 6: not registered; pure skip rule handled in performStandardCheck.
+ * - 7: registered; mutates weights when account digit g is 9.
+ * - 8: registered; substitutes the sort code used for the check.
+ * - 9: registered; substitutes the sort code and is paired with exception 2 in
+ *   getResultPredicate.
+ * - 10: registered; mutates weights and is paired with exception 11 in
+ *   getResultPredicate.
+ * - 11: not registered; second-check marker paired with exception 10 in
+ *   getResultPredicate.
+ * - 12: not registered; no per-check mutation, but its 12/13 pair uses
+ *   Exception12Handler.getResultPredicate().
+ * - 13: not registered; second-check marker paired with exception 12 in
+ *   getResultPredicate.
+ * - 14: registered; uses custom multi-check logic in getResultPredicate.
+ *
+ * This project currently targets the bundled v8.80 data. The same ownership
+ * model is documented here with reference to the Vocalink v8.90 exception
+ * descriptions, but the newer v8.90 data itself is not implemented here.
+ */
 exceptionRegistry.register(1, new Exception01Handler());
 exceptionRegistry.register(2, new Exception02Handler());
 exceptionRegistry.register(4, new Exception04Handler());
