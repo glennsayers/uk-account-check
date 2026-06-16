@@ -31,7 +31,7 @@ export type BankDetails = {
 /**
  * Validates UK bank account details using the official Vocalink Modulus Checking system.
  *
- * This function implements the complete Vocalink v8.70 specification including all 14 exceptions.
+ * This function implements the complete Vocalink v8.80 specification including all 14 exceptions.
  * It performs comprehensive validation and returns detailed results about the checking process.
  *
  * @param details a BankDetails object
@@ -42,7 +42,7 @@ export function verifyBankAccount(details: BankDetails): ValidationResult;
 /**
  * Validates UK bank account details using the official Vocalink Modulus Checking system.
  *
- * This function implements the complete Vocalink v8.70 specification including all 14 exceptions.
+ * This function implements the complete Vocalink v8.80 specification including all 14 exceptions.
  * It performs comprehensive validation and returns detailed results about the checking process.
  *
  * @param sortCode a string representing the sort code

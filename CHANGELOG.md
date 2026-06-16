@@ -1,5 +1,17 @@
 # uk-account-check
 
+## 1.3.0
+
+### Minor Changes
+
+- dfcb3d2: Add Vocalink v8.80 VALACDOS data ahead of the 30 May 2026 effective date.
+
+## 1.3.0-v880.0
+
+### Minor Changes
+
+- Add Vocalink v8.80 VALACDOS data ahead of the 30 May 2026 effective date.
+
 ## 1.2.1
 
 ### Patch Changes
