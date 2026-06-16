@@ -2,9 +2,10 @@ name: CI
 
 on:
   pull_request:
-    branches: [master, develop]
+    branches: [master]
   push:
-    branches: [master, develop]
+    branches-ignore:
+      - master
 
 jobs:
   test:
@@ -22,8 +23,6 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
-        with:
-          version: 10.5
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile

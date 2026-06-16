@@ -1,6 +1,7 @@
 {
   "name": "uk-account-check",
   "version": "1.3.0",
+  "packageManager": "pnpm@11.5.2",
   "description": "Uses the Vocalink Modulus Checking system to verify UK bank account details",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -52,11 +53,11 @@
   },
   "homepage": "https://github.com/glennsayers/uk-account-check#readme",
   "devDependencies": {
-    "@biomejs/biome": "^2.4.12",
+    "@biomejs/biome": "^2.5.0",
     "@changesets/cli": "^2.31.0",
-    "@types/node": "^25.6.0",
+    "@types/node": "^25.9.3",
     "tsdown": "^0.22.2",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.5"
+    "vitest": "^4.1.9"
   }
 }
