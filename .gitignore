@@ -1,5 +1,6 @@
 node_modules/
 .npm
+.pnpm-store/
 dist/
 .vscode
 .DS_Store

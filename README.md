@@ -12,7 +12,7 @@ This includes:
 - Complete exception handling (exceptions 1-14)
 - Up-to-date Vocalink data file
 
-This prerelease build implements v8.80 (effective 30th May 2026) of the [Vocalink Modulus Checking spec](https://www.vocalink.com/media/4qkktefk/validating-account-numbers-uk-modulus-checking-v880.pdf), with all official exceptions covered. Install it explicitly with the `v880` npm tag if you need to test against the future-effective data before it is promoted to `latest`.
+This build implements v8.90 (effective 20th June 2026) of the [Vocalink Modulus Checking spec](https://www.vocalink.com/media/s5fomivy/validating-account-numbers-uk-modulus-checking-v890.pdf), with all official exceptions covered.
 
 The specification requires that sort codes with no weight records in the Vocalink data should be considered valid. These scenarios are reported back by this library in the `ValidationStatus` to highlight when a sort code/account combination is valid but unverified.
 

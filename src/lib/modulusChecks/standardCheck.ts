@@ -127,9 +127,8 @@ const canSkipCheck = (
   exception: number,
   accountAndSortMap: Weightings,
 ): boolean => {
-  /**
-   * Exception 3 allows us to skip this check in certain scenarioes
-   */
+  // Exception 3 is a skip rule: if account digit c is 6 or 9, the
+  // check is treated as passed.
   if (exception === 3) {
     const accountDigitC = accountAndSortMap.c;
     if (accountDigitC === 6 || accountDigitC === 9) {
@@ -138,13 +137,13 @@ const canSkipCheck = (
   }
 
   if (exception === 6) {
-    // If value a is equal to one of the below we can skip the check
+    // Exception 6 is also a skip rule: if digit a is in the specified
+    // range and digits g/h match, the check is treated as passed.
     const { a, g, h } = accountAndSortMap;
-    const doesAccountNumberMeetRequirment =
+    const doesAccountNumberMeetRequirement =
       a === 4 || a === 5 || a === 6 || a === 7 || a === 8;
 
-    // If g and h are equal we can skip the check
-    return doesAccountNumberMeetRequirment && g === h;
+    return doesAccountNumberMeetRequirement && g === h;
   }
 
   return false;
