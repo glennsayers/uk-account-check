@@ -8,6 +8,7 @@ updates:
       time: "09:00"
       timezone: "Europe/London"
     open-pull-requests-limit: 5
+    target-branch: "develop"
     groups:
       npm-development-dependencies:
         dependency-type: "development"
@@ -23,6 +24,7 @@ updates:
       time: "09:00"
       timezone: "Europe/London"
     open-pull-requests-limit: 5
+    target-branch: "develop"
     groups:
       github-actions:
         patterns:
