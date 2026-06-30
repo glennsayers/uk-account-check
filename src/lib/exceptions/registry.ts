@@ -141,10 +141,6 @@ export const exceptionRegistry = new ExceptionRegistry();
  * - 13: not registered; second-check marker paired with exception 12 in
  *   getResultPredicate.
  * - 14: registered; uses custom multi-check logic in getResultPredicate.
- *
- * This project currently targets the bundled v8.80 data. The same ownership
- * model is documented here with reference to the Vocalink v8.90 exception
- * descriptions, but the newer v8.90 data itself is not implemented here.
  */
 exceptionRegistry.register(1, new Exception01Handler());
 exceptionRegistry.register(2, new Exception02Handler());
