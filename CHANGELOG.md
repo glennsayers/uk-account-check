@@ -1,5 +1,11 @@
 # uk-account-check
 
+## 1.4.0
+
+### Minor Changes
+
+- eaa5edc: Update to baseline version 8.90, effective 20th June 2026
+
 ## 1.3.0
 
 ### Minor Changes
