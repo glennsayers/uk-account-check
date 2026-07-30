@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "uk-account-check": "1.4.0"
+  },
+  "changesets": [
+    "good-olives-wish"
+  ]
+}
