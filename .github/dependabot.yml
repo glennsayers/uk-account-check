@@ -9,6 +9,8 @@ updates:
       timezone: "Europe/London"
     open-pull-requests-limit: 5
     target-branch: "master"
+    ignore:
+      - dependency-name: "@biomejs/biome"
     groups:
       npm-development-dependencies:
         dependency-type: "development"

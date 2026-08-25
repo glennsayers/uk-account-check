@@ -53,7 +53,7 @@
   },
   "homepage": "https://github.com/glennsayers/uk-account-check#readme",
   "devDependencies": {
-    "@biomejs/biome": "^2.5.0",
+    "@biomejs/biome": "2.5.10",
     "@changesets/cli": "^2.31.0",
     "@types/node": "^26.0.1",
     "tsdown": "^0.22.2",
