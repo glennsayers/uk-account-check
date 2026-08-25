@@ -294,20 +294,23 @@ const vocalinkVectors = [
 
 describe("Index", () => {
   describe("Vocalink appendix vectors", () => {
-    test.each(vocalinkVectors)("($caseNumber) $description", ({
-      sortCode,
-      accountNumber,
-      expectedIsValid,
-      expectedValidationStatus,
-    }) => {
-      const { isValid, validationStatus } = verifyBankAccount(
+    test.each(vocalinkVectors)(
+      "($caseNumber) $description",
+      ({
         sortCode,
         accountNumber,
-      );
+        expectedIsValid,
+        expectedValidationStatus,
+      }) => {
+        const { isValid, validationStatus } = verifyBankAccount(
+          sortCode,
+          accountNumber,
+        );
 
-      expect(isValid).toBe(expectedIsValid);
-      expect(validationStatus).toEqual(expectedValidationStatus);
-    });
+        expect(isValid).toBe(expectedIsValid);
+        expect(validationStatus).toEqual(expectedValidationStatus);
+      },
+    );
   });
 
   describe("Public API", () => {
@@ -348,31 +351,30 @@ describe("Index", () => {
         accountNumber: "   ",
         expectedError: { field: "accountNumber", code: "EMPTY_INPUT" },
       },
-    ])("returns INVALID_INPUT shape for $description", ({
-      sortCode,
-      accountNumber,
-      expectedError,
-    }) => {
-      const result = verifyBankAccount(sortCode, accountNumber);
+    ])(
+      "returns INVALID_INPUT shape for $description",
+      ({ sortCode, accountNumber, expectedError }) => {
+        const result = verifyBankAccount(sortCode, accountNumber);
 
-      expect(result.isValid).toBe(false);
-      expect(result.validationStatus).toEqual(ValidationStatus.INVALID_INPUT);
-      expect(result.errors?.length).toBeGreaterThan(0);
-      expect(result.errors).toEqual(
-        expect.arrayContaining([expect.objectContaining(expectedError)]),
-      );
-      expect(result.input).toEqual({
-        originalSortCode: sortCode,
-        originalAccountNumber: accountNumber,
-        sanitizedSortCode: "",
-        sanitizedAccountNumber: "",
-      });
-      expect(result.checks).toEqual([]);
-      expect(result.summary).toEqual({
-        totalChecks: 0,
-        checksPerformed: false,
-      });
-    });
+        expect(result.isValid).toBe(false);
+        expect(result.validationStatus).toEqual(ValidationStatus.INVALID_INPUT);
+        expect(result.errors?.length).toBeGreaterThan(0);
+        expect(result.errors).toEqual(
+          expect.arrayContaining([expect.objectContaining(expectedError)]),
+        );
+        expect(result.input).toEqual({
+          originalSortCode: sortCode,
+          originalAccountNumber: accountNumber,
+          sanitizedSortCode: "",
+          sanitizedAccountNumber: "",
+        });
+        expect(result.checks).toEqual([]);
+        expect(result.summary).toEqual({
+          totalChecks: 0,
+          checksPerformed: false,
+        });
+      },
+    );
   });
 
   describe("Assumed valid without checks", () => {
@@ -398,10 +400,15 @@ describe("Index", () => {
       ["308000", "123456789", "9-digit account (8 digits used)"],
       ["089999", "1234567", "7-digit account (prefixed with 0)"],
       ["089999", "123456", "6-digit account (prefixed with 00)"],
-    ])("reports transformation applied for %s / %s", (sortCode, accountNumber, transformationApplied) => {
-      const result = verifyBankAccount(sortCode, accountNumber);
+    ])(
+      "reports transformation applied for %s / %s",
+      (sortCode, accountNumber, transformationApplied) => {
+        const result = verifyBankAccount(sortCode, accountNumber);
 
-      expect(result.input.transformationApplied).toEqual(transformationApplied);
-    });
+        expect(result.input.transformationApplied).toEqual(
+          transformationApplied,
+        );
+      },
+    );
   });
 });
