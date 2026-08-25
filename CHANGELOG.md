@@ -1,5 +1,11 @@
 # uk-account-check
 
+## 1.5.0
+
+### Minor Changes
+
+- 602c0a4: Update to baseline version 9.00, effective 15th August 2026
+
 ## 1.5.0-next.0
 
 ### Minor Changes
