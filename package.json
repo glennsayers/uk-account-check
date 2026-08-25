@@ -1,6 +1,6 @@
 {
   "name": "uk-account-check",
-  "version": "1.4.0",
+  "version": "1.5.0-next.0",
   "packageManager": "pnpm@11.5.2",
   "description": "Uses the Vocalink Modulus Checking system to verify UK bank account details",
   "main": "dist/index.cjs",
@@ -29,7 +29,7 @@
     "convert-data": "node scripts/convert-data.js",
     "dev": "tsdown --watch",
     "lint": "biome check --write src",
-    "lint:ci": "biome check",
+    "lint:ci": "biome check src",
     "release": "pnpm build && changeset publish",
     "test:watch": "vitest",
     "test": "vitest run",
