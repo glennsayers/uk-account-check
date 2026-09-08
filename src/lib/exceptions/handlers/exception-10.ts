@@ -11,8 +11,9 @@ export class Exception10Handler implements ExceptionHandler {
 
   apply(context: ModulusCheckContext): ModulusCheckContext {
     const accountDigitAB = context.accountNumber.substring(0, 2);
+    const accountDigitG = context.accountNumber[6];
 
-    if (["09", "99"].includes(accountDigitAB)) {
+    if (["09", "99"].includes(accountDigitAB) && accountDigitG === "9") {
       return {
         ...context,
         weightings: {

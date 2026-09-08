@@ -313,6 +313,32 @@ describe("Index", () => {
     );
   });
 
+  describe("Exception 10 regression cases", () => {
+    // Synthetic accounts: matching ab alone must not zeroise weights when g != 9.
+    test.each([
+      ["09000000", false],
+      ["09000001", true],
+      ["99000000", false],
+      ["99000002", true],
+    ])(
+      "Exception 10 where g is not 9: %s has validity %s",
+      (accountNumber, expectedIsValid) => {
+        const result = verifyBankAccount("871427", accountNumber);
+
+        expect(result.isValid).toBe(expectedIsValid);
+        expect(result.validationStatus).toBe(
+          expectedIsValid
+            ? ValidationStatus.VALIDATED_PASSED
+            : ValidationStatus.VALIDATED_FAILED,
+        );
+        expect(result.checks.map((check) => check.passed)).toEqual([
+          expectedIsValid,
+          false,
+        ]);
+      },
+    );
+  });
+
   describe("Public API", () => {
     test("object-form overload returns the same result as tuple form", () => {
       const tupleResult = verifyBankAccount("089999", "66374958");
