@@ -12,7 +12,7 @@ This includes:
 - Complete exception handling (exceptions 1-14)
 - Up-to-date Vocalink data file
 
-This build implements v9.00 (effective 15th August 2026) of the [Vocalink Modulus Checking spec](https://www.vocalink.com/media/s5fomivy/validating-account-numbers-uk-modulus-checking-v890.pdf), with all official exceptions covered.
+This build implements v9.10 of the [Vocalink Modulus Checking spec](https://www.vocalink.com/media/e0mo2xxa/validating-account-numbers-uk-modulus-checking-v910.pdf), with all official exceptions covered.
 
 The specification requires that sort codes with no weight records in the Vocalink data should be considered valid. These scenarios are reported back by this library in the `ValidationStatus` to highlight when a sort code/account combination is valid but unverified.
 
