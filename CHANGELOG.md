@@ -1,5 +1,15 @@
 # uk-account-check
 
+## 1.6.0
+
+### Minor Changes
+
+- 474ee55: Update to baseline 9.10
+
+### Patch Changes
+
+- 5370656: Fix exception 10 to zero weights when the account starts with 09 or 99 and its seventh digit is 9.
+
 ## 1.5.0
 
 ### Minor Changes
